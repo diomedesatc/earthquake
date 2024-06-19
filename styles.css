@@ -1,0 +1,58 @@
+*{
+    font-family: "Poppins";
+}
+
+#container{
+    display: flex;    
+    flex-direction: column;
+    align-items: center;
+    background-color: #3ABEF9;
+    height: 650px;
+}
+
+#first-title{
+    color: white;
+    font-size: 70px;
+    margin: 0;
+}
+
+#generateInformation{
+    width: 250px;
+    height: 80px;
+    font-size: 20px;
+    color: #050C9C;
+    background-color: #A7E6FF;
+    border: 3px solid #050C9C;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3px;
+}
+
+.earthquake-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 5px solid #050C9C;
+    background-color: #A7E6FF;
+    width: 400px;
+    margin: 10px;
+}
+
+.card-title{
+    background-color: black;
+    color: white;
+    text-align: center;
+    margin-top: 0;
+    width: 390px;
+}
+
+#earthquake-information{
+    display: grid;
+    grid-template-columns: repeat(3, 0fr);
+}

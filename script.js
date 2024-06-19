@@ -2,21 +2,20 @@ const generateInformationButton = document.getElementById('generateInformation')
 const earthquakeInformation = document.getElementById('earthquake-information');
 const container = document.getElementById('container');
 
-const gettingTheApi = (e) =>{
+
+const gettingTheApiAsy = async (e) =>{
     e.preventDefault();
-    fetch('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson')
-    .then(response =>{
+    try{        
+        const response = await fetch('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson');
         if(response.ok){
-            
-            return response.json();
+            const jsonResponse = await response.json();
+            apiToVariables(jsonResponse);
         }
         throw new Error('Request Failed!');
-    }, networkError =>{
-        console.log(networkError);
-    }).then(data =>
-        apiToVariables(data)   
-        
-    )
+
+    }catch(networkError){
+        console.log(networkError.message);
+    }
 }
 
 const apiToVariables = (earthquakeArray) =>{
@@ -61,4 +60,4 @@ const createTheCards = (magni, placeE, tsunamiE, titleE, typeE) =>{
 }
 
 
-generateInformationButton.addEventListener('click', gettingTheApi);
+generateInformationButton.addEventListener('click', gettingTheApiAsy);
